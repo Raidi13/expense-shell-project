@@ -20,7 +20,6 @@ N="\e[0m" #reset color
          if [ $USERID -ne 0 ]
     then 
         echo -e "$R please run the script with root user $N" | tee -a $LOG_FILE
-    else
         exit 1
 
     fi
