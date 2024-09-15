@@ -2,7 +2,7 @@
 
 LOGS_FOLDER="/var/log/expense" #log file
 SCRIPT_NAME=$(echo $0 |cut -d "." -f11) #$0 command run inside shell script # cut -d "." -f1 (dilimater)
-TIMESTAMP=$(date +%Y-%M-%S-%H-%M-%S) #time stamp
+TIMESTAMP=$(date +%Y-%m-%S-%H-%M-%S) #time stamp
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
 mkdir -p $LOGS_FOLDER
 
@@ -44,7 +44,7 @@ N="\e[0m" #reset color
     systemctl enable mysqld &>>$LOG_FILE
     VALIDATE $? "enable mysql server"
 
-    systemctl stsrt mysqld &>>$LOG_FILE
+    systemctl start mysqld &>>$LOG_FILE
     VALIDATE $? "started mysql server"
 
     mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOG_FILE
