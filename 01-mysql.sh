@@ -36,6 +36,7 @@ N="\e[0m"
     echo "script started executing at: $(date)" |tee -a $LOG_FILE
     
     CHECK_ROOT
+    
     dnf install mysql-server -y &>>$LOG_FILE
     VALIDATE $? "installing Mysql server"
 
